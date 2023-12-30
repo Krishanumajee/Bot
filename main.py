@@ -16,7 +16,7 @@ def new_mes(message):
             data, message_text_jinxx, nickname, level, headPic, liked, accountId = get_data_jinxx(url)
             if "error" not in data:
                 webappurl = f"https://jinxx6-6.github.io/Sjsu7w?uid={accountId}&name={nickname}&lvl={level}&like={liked}&headPic={headPic}"
-                bot.reply_to(message, message_text_jinxx, parse_mode="Markdown", reply_markup=webAppKeyboardInline(webappurl))
+                bot.reply_to(message, message_text_jinxx, parse_mode="Markdown")
             else:
                 bot.delete_message(chat_id=message.chat.id, message_id=save.message_id)
     except Exception as e:
