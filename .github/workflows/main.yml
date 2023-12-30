@@ -1,4 +1,4 @@
-name: Run Bot.py with Virtual Environment
+name: Run main.py with Virtual Environment
 
 on:
   push:
@@ -44,14 +44,14 @@ jobs:
     
       - name: Check if script is running
         run: |
-          if pgrep -f "Bot.py" ; then
-            echo "Bot.py is already running, skipping..."
+          if pgrep -f "main.py" ; then
+            echo "main.py is already running, skipping..."
             exit 0
           fi
 
-      - name: Run Bot.py
+      - name: Run main.py
         run: |
           source venv/bin/activate
-          python Bot.py
+          python main.py
         env:
           TELEGRAM_BOT_API_ID: ${{ secrets.TELEGRAM_BOT_API_ID }}
