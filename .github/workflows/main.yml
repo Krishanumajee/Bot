@@ -1,0 +1,57 @@
+name: Run Bot.py with Virtual Environment
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 */3 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Create virtual environment
+        run: python -m venv venv
+
+      - name: Activate the virtual environment
+        run: source venv/bin/activate
+
+      - name: Update apt
+        run: sudo apt-get update
+
+      - name: Retry apt-get install
+        run: sudo apt-get install -y --fix-missing
+
+      
+
+      - name: Install required libraries
+        run: |
+          source venv/bin/activate
+          python -m pip install --upgrade pip
+          python -m pip install pyTelegramBotAPI==4.14.0
+          python -m pip install requests==2.31.0
+
+    
+      - name: Check if script is running
+        run: |
+          if pgrep -f "Bot.py" ; then
+            echo "Bot.py is already running, skipping..."
+            exit 0
+          fi
+
+      - name: Run Bot.py
+        run: |
+          source venv/bin/activate
+          python Bot.py
+        env:
+          TELEGRAM_BOT_API_ID: ${{ secrets.TELEGRAM_BOT_API_ID }}
