@@ -79,4 +79,8 @@ Join Main Channel [smartclown_ofc](https://t.me/smartclown_ofc)
                 except json.JSONDecodeError as e:
                     print(f"Error decoding JSON response: {e}")
 
-bot.polling()
+if __name__ == '__main__':
+    try:
+        bot.infinity_polling(none_stop=True)
+    except Exception as e:
+        print(e)
