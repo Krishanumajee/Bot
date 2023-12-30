@@ -6,7 +6,7 @@ import calendar
 import re
 import os
 TOKEN = os.getenv('TELEGRAM_BOT_API_ID')
-bot = telebot.TeleBot(API_TOKEN)
+bot = telebot.TeleBot(TOKEN)
 
 target_group_chat_id = -1001961606497
 
