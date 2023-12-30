@@ -12,11 +12,7 @@ def jishsuxb(nssisj):
     formatted_date_time = dt_object.strftime("%Y-%m-%d %H:%M:%S")
     return formatted_date_time
 
-def webAppKeyboardInline(url):
-   keyboard = types.InlineKeyboardMarkup(row_width=1)
-   one = types.InlineKeyboardButton(text="Preview (testing)", url=url)
-   keyboard.add(one)
-   return keyboard
+
 
 
 
