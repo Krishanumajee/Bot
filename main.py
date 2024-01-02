@@ -68,8 +68,6 @@ BR Rank Point: {BRR}
 
 CS Rank Point: {CSR}
 
-You opened Free Fire last on {formatted_date}
-
 Join Main Channel [smartclown_ofc](https://t.me/smartclown_ofc)
 """
                         bot.send_message(chat_id, reply_message, parse_mode="Markdown", disable_web_page_preview=True)
