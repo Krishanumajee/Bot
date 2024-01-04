@@ -15,8 +15,8 @@ target_group_chat_id = -1001961606497
 def handle_message(message):
     chat_id = message.chat.id
     text = message.text
-    #if chat_id == target_group_chat_id:
-    if True:
+    if chat_id == target_group_chat_id:
+    #if True:
         if '#' in text:
             hashtag = message.text[0]
             UserID = message.text[1:]
