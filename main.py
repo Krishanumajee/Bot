@@ -5,7 +5,6 @@ from datetime import datetime, timezone, timedelta
 import calendar
 import re
 import os
-import schedule
 import time
 
 
